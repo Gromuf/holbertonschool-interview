@@ -3,7 +3,7 @@
 
 static size_t tree_size(const binary_tree_t *tree);
 static heap_t *insertion_parent(heap_t *root);
-static void heap_sift_up(heap_t *node);
+static heap_t *heap_sift_up(heap_t *node);
 
 /**
  * heap_insert - Inserts a value into a Max Binary Heap
@@ -48,7 +48,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	{
 		parent->right = node;
 	}
-	heap_sift_up(node);
+	node = heap_sift_up(node);
 
 	return (node);
 }
@@ -115,7 +115,7 @@ static heap_t *insertion_parent(heap_t *root)
  * heap_sift_up - Restores Max-Heap order by swapping values upward
  * @node: Newly inserted node
  */
-static void heap_sift_up(heap_t *node)
+static heap_t *heap_sift_up(heap_t *node)
 {
 	int tmp;
 
@@ -126,4 +126,5 @@ static void heap_sift_up(heap_t *node)
 		node->parent->n = tmp;
 		node = node->parent;
 	}
+	return (node);
 }
