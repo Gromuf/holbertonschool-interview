@@ -112,8 +112,11 @@ static heap_t *insertion_parent(heap_t *root)
 }
 
 /**
- * heap_sift_up - Restores Max-Heap order by swapping values upward
- * @node: Newly inserted node
+ * heap_sift_up - Restores Max-Heap order by swapping values upward.
+ * @node: Newly inserted node (initial position)
+ *
+ * Return: Pointer to the node that now contains the originally inserted value
+ *         after the sift-up process.
  */
 static heap_t *heap_sift_up(heap_t *node)
 {
