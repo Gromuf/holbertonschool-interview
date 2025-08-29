@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+# 0-minoperations.py
 def minOperations(n):
     """
     Calcule le nombre minimal d'opérations (Copy All, Paste)
