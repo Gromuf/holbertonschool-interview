@@ -42,8 +42,8 @@ if __name__ == "__main__":
             if len(parts) < 2:
                 continue
             try:
-                status_code = int(parts[-2])
                 file_size = int(parts[-1])
+                status_code = int(parts[-2])     
             except (ValueError, IndexError):
                 continue
             total_size += file_size
