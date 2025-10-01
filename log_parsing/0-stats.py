@@ -35,23 +35,24 @@ def print_stats():
             print("{}: {}".format(code, status_counts[code]))
 
 
-try:
-    for line in sys.stdin:
-        parts = line.split()
-        if len(parts) < 7:
-            continue
-        try:
-            status_code = int(parts[-2])
-            file_size = int(parts[-1])
-        except ValueError:
-            continue
-        total_size += file_size
-        if status_code in status_counts:
-            status_counts[status_code] += 1
-        line_count += 1
-        if line_count % 10 == 0:
-            print_stats()
-except KeyboardInterrupt:
+if __name__ == "__main__":
+    try:
+        for line in sys.stdin:
+            parts = line.split()
+            if len(parts) < 7:
+                continue
+            try:
+                status_code = int(parts[-2])
+                file_size = int(parts[-1])
+            except ValueError:
+                continue
+            total_size += file_size
+            if status_code in status_counts:
+                status_counts[status_code] += 1
+            line_count += 1
+            if line_count % 10 == 0:
+                print_stats()
+    except KeyboardInterrupt:
+        print_stats()
+        raise
     print_stats()
-    raise
-print_stats()
