@@ -38,13 +38,13 @@ def print_stats():
 if __name__ == "__main__":
     try:
         for line in sys.stdin:
-            parts = line.split()
-            if len(parts) < 7:
+            parts = line.strip().split()
+            if len(parts) < 2:
                 continue
             try:
                 status_code = int(parts[-2])
                 file_size = int(parts[-1])
-            except ValueError:
+            except (ValueError, IndexError):
                 continue
             total_size += file_size
             if status_code in status_counts:
