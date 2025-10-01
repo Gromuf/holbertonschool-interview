@@ -43,7 +43,7 @@ if __name__ == "__main__":
                 continue
             try:
                 file_size = int(parts[-1])
-                status_code = int(parts[-2])     
+                status_code = int(parts[-2])
             except (ValueError, IndexError):
                 continue
             total_size += file_size
