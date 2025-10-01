@@ -1,4 +1,22 @@
 #!/usr/bin/python3
+"""
+Log parsing script.
+
+Ce script lit l'entrée standard ligne par ligne et calcule des statistiques :
+- La taille totale des fichiers transférés (somme des <file size>).
+- Le nombre d’occurrences des codes de statut HTTP.
+
+Affichage des statistiques :
+- Toutes les 10 lignes lues.
+- Lors d'une interruption clavier (CTRL + C).
+- À la fin de l'entrée.
+
+Format attendu d'une ligne :
+<IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
+
+Toute ligne qui ne respecte pas ce format est ignorée.
+"""
+
 import sys
 
 
