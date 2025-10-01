@@ -39,8 +39,6 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             parts = line.strip().rsplit(" ", 2)
-            if len(parts) < 3:
-                continue
             try:
                 file_size = int(parts[-1])
                 status_code = int(parts[-2])
