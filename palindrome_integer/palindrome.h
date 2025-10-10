@@ -1,5 +1,5 @@
-#ifndef _PALINDROME_H
-#define _PALINDROME_H
+#ifndef PALINDROME_H
+#define PALINDROME_H
 
 #include <stddef.h>
 
