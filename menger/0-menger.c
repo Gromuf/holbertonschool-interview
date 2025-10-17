@@ -31,6 +31,7 @@ void draw_char(int row, int col)
 void menger(int level)
 {
 	int size, row, col;
+
 	if (level < 0)
 		return;
 	size = pow(3, level);
