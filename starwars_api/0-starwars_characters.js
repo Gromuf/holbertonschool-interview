@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const request = require("request");
+const request = require('request');
 const movieId = process.argv[2];
 const url = `https://swapi.dev/api/films/${movieId}/`;
 request(url, (err, res, body) => {
@@ -11,7 +11,7 @@ request(url, (err, res, body) => {
   const characters = film.characters;
   printCharacters(characters, 0);
 });
-function printCharacters(list, index) {
+function printCharacters (list, index) {
   if (index === list.length) {
     return;
   }
