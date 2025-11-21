@@ -14,9 +14,10 @@ static void print_range(skiplist_t *low, skiplist_t *high)
 /**
  * find_express_range - Moves along express lane to find search interval
  * @head: Pointer to head of list
+ * @high: Output pointer to the upper bound of the interval
  * @value: Value to search for
  *
- * Return: pointer to the lower bound of the range
+ * Return: Pointer to the lower bound of the interval
  */
 static skiplist_t *find_express_range(skiplist_t *head, skiplist_t **high,
 				      int value)
