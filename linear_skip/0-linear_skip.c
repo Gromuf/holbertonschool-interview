@@ -1,55 +1,58 @@
 #include "search.h"
 
+static void print_found_range(skiplist_t *start, skiplist_t *end)
+{
+	printf("Value found between indexes [%lu] and [%lu]\n",
+	       start->index, end->index);
+}
+
 /**
- * linear_skip - Searches for a value in a sorted skip list of integers
- * @head: Pointer to the head of the skip list
+ * linear_skip - Searches for a value in a sorted skip list with express lane
+ * @head: Pointer to head of skip list
  * @value: Value to search for
  *
- * Return: Pointer to the first node where value is located, or NULL
+ * Return: Pointer to node containing value, or NULL
  */
 skiplist_t *linear_skip(skiplist_t *head, int value)
 {
-	skiplist_t *express_node, *prev_node;
+	skiplist_t *low, *high;
 
 	if (head == NULL)
 		return (NULL);
 
-	express_node = head->express;
-	prev_node = head;
+	low = head;
+	high = head->express;
 
-	while (express_node != NULL && express_node->n < value)
+	while (high && high->n < value)
 	{
 		printf("Value checked at index [%lu] = [%d]\n",
-		       express_node->index, express_node->n);
-		prev_node = express_node;
-		express_node = express_node->express;
+		       high->index, high->n);
+		low = high;
+		high = high->express;
 	}
 
-	if (express_node != NULL)
+	if (high)
 	{
 		printf("Value checked at index [%lu] = [%d]\n",
-		       express_node->index, express_node->n);
-		printf("Value found between indexes [%lu] and [%lu]\n",
-		       prev_node->index, express_node->index);
+		       high->index, high->n);
+		print_found_range(low, high);
 	}
 	else
 	{
-		skiplist_t *temp = prev_node;
+		skiplist_t *temp = low;
 
-		while (temp->next != NULL)
+		while (temp->next)
 			temp = temp->next;
-		printf("Value found between indexes [%lu] and [%lu]\n",
-		       prev_node->index, temp->index);
+		print_found_range(low, temp);
 	}
 
-	while (prev_node != NULL && prev_node->index <=
-	       (express_node != NULL ? express_node->index : prev_node->index))
+	while (low && (!high || low->index <= high->index))
 	{
 		printf("Value checked at index [%lu] = [%d]\n",
-		       prev_node->index, prev_node->n);
-		if (prev_node->n == value)
-			return (prev_node);
-		prev_node = prev_node->next;
+		       low->index, low->n);
+		if (low->n == value)
+			return (low);
+		low = low->next;
 	}
 
 	return (NULL);
