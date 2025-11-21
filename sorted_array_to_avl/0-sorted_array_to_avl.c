@@ -11,7 +11,7 @@
  *
  * Return: Pointer to created AVL tree node, or NULL on failure
  */
-avl_t *create_node(int *array, int start, int end, avl_t *parent)
+static avl_t *create_node(int *array, int start, int end, avl_t *parent)
 {
     int mid;
     avl_t *node;
