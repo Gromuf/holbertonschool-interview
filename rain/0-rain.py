@@ -9,7 +9,7 @@ def rain(walls):
     Calculate how much rainwater can be trapped between walls.
 
     Args:
-        walls (list): A list of non-negative integers representing wall heights.
+        walls (list): A list of non-negative integers representing wall height.
 
     Returns:
         int: The total amount of rainwater that can be trapped.
