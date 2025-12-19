@@ -37,19 +37,24 @@ static int advanced_binary_recursive(int *array, size_t left,
 
 	if (right < left)
 		return (-1);
+
 	print_array(array, left, right);
+
 	mid = left + (right - left) / 2;
+
 	if (array[mid] == value)
 	{
 		if (mid == left || array[mid - 1] != value)
-			return (mid);
+			return ((int)mid);
 		return (advanced_binary_recursive(array, left, mid, value));
 	}
+
 	if (array[mid] < value)
 		return (advanced_binary_recursive(array, mid + 1, right, value));
-	return (advanced_binary_recursive(array, left, mid - 1, value));
-}
 
+	/* ⚠️ ICI la correction clé */
+	return (advanced_binary_recursive(array, left, mid, value));
+}
 /**
  * advanced_binary - searches for a value in a sorted array
  * @array: pointer to the first element
