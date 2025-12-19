@@ -27,7 +27,7 @@ static void print_array(int *array, size_t left, size_t right)
  * @left: left index
  * @right: right index
  * @value: value to find
- * 
+ *
  * Return: index of first occurence or -1
  */
 static int advanced_binary_recursive(int *array, size_t left,
