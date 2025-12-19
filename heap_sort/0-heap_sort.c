@@ -1,6 +1,6 @@
 #include "sort.h"
 
-/** 
+/**
  * swap - Swaps two integers in an array
  * @a: first integer
  * @b: second integer
@@ -49,6 +49,7 @@ void heap_sort(int *array, size_t size)
 {
 	long i;
 	size_t end;
+
 	if (!array || size < 2)
 		return;
 	for (i = (size / 2) - 1; i >= 0; i--)
