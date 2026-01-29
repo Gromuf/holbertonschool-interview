@@ -54,6 +54,7 @@ void multiply(char *num1, char *num2)
 {
 	int len1, len2, i, j, carry, n1, n2;
 	int *result;
+
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
 	result = malloc(sizeof(int) * (len1 + len2));
