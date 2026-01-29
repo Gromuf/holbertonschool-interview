@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include "main.h"
 
+/**
+ * is_digit - checks if a string contains only digits
+ * @s: string to check
+ *
+ * Return: 1 if only digits, 0 otherwise
+ */
 int is_digit(char *s)
 {
 	int i = 0;
@@ -15,6 +21,12 @@ int is_digit(char *s)
 	return (1);
 }
 
+/**
+ * _strlen - returns the length of a string
+ * @s: string
+ *
+ * Return: length
+ */
 int _strlen(char *s)
 {
 	int len = 0;
@@ -24,29 +36,29 @@ int _strlen(char *s)
 	return (len);
 }
 
+/**
+ * print_error - prints Error and exits with status 98
+ */
 void print_error(void)
 {
 	printf("Error\n");
 	exit(98);
 }
 
-int main(int argc, char *argv[])
+/**
+ * multiply - multiplies two positive numbers as strings
+ * @num1: first number
+ * @num2: second number
+ */
+void multiply(char *num1, char *num2)
 {
-	char *num1, *num2;
 	int len1, len2, i, j, carry, n1, n2;
 	int *result;
-
-	if (argc != 3)
-		print_error();
-	num1 = argv[1];
-	num2 = argv[2];
-	if (!is_digit(num1) || !is_digit(num2))
-		print_error();
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
 	result = malloc(sizeof(int) * (len1 + len2));
 	if (!result)
-		return (1);
+		exit(1);
 	for (i = 0; i < len1 + len2; i++)
 		result[i] = 0;
 	for (i = len1 - 1; i >= 0; i--)
@@ -67,10 +79,28 @@ int main(int argc, char *argv[])
 		i++;
 	if (i == len1 + len2)
 		_putchar('0');
-	
 	for (; i < len1 + len2; i++)
 		_putchar(result[i] + '0');
 	_putchar('\n');
 	free(result);
+}
+
+/**
+ * main - multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 on success
+ */
+int main(int argc, char *argv[])
+{
+	if (argc != 3)
+		print_error();
+
+	if (!is_digit(argv[1]) || !is_digit(argv[2]))
+		print_error();
+
+	multiply(argv[1], argv[2]);
+
 	return (0);
 }
