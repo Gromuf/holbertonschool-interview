@@ -48,7 +48,7 @@ static size_t tree_size(heap_t *tree)
 
 static heap_t *get_last_node(heap_t *root, size_t size)
 {
-	size_t path = size - 1;
+	size_t path = size;
 	heap_t *current = root;
 	size_t mask = 1UL << (sizeof(size_t) * 8 - 1);
 
