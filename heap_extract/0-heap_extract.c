@@ -23,6 +23,7 @@ int heap_extract(heap_t **root)
 	}
 
 	size_t size = tree_size(*root);
+
 	last_node = get_last_node(*root, size);
 
 	(*root)->n = last_node->n;
@@ -83,6 +84,7 @@ static void heapify_down(heap_t *root)
 	if (largest != root)
 	{
 		int temp = root->n;
+
 		root->n = largest->n;
 		largest->n = temp;
 		heapify_down(largest);
