@@ -13,6 +13,7 @@
 void merge_sub(int *array, int *buff, size_t start, size_t mid, size_t end)
 {
 	size_t i = start, j = mid, k = 0;
+
 	printf("Merging...\n");
 	printf("[left]: ");
 	print_array(array + start, mid - start);
@@ -40,6 +41,7 @@ void merge_sub(int *array, int *buff, size_t start, size_t mid, size_t end)
 void sort_recursive(int *array, int *buff, size_t start, size_t end)
 {
 	size_t mid;
+
 	if (end - start < 2)
 		return;
 	mid = start + (end - start) / 2;
