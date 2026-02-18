@@ -26,7 +26,7 @@ void merge_sub(int *array, int *buff, size_t start, size_t mid, size_t end)
 		buff[k++] = array[j++];
 	for (i = start, k = 0; i < end; i++)
 		array[i] = buff[k++];
-	printf("[done]: ");
+	printf("[Done]: ");
 	print_array(array + start, end - start);
 }
 
