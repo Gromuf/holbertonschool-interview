@@ -18,8 +18,10 @@ def makeChange(coins, total):
     num_coins = 0
 
     for coin in coins:
-        while total >= coin:
-            total -= coin
-            num_coins += 1
+        if total <= 0:
+            break
+        count = total // coin
+        num_coins += count
+        total %= coin
 
     return num_coins if total == 0 else -1
