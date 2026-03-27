@@ -20,7 +20,7 @@ int get_max(int *array, size_t size)
 }
 
 /**
- * count_sort - A function to do counting sort of array[] according to
+ * counting_sort - A function to do counting sort of array[] according to
  * the digit represented by exp.
  * @array: The array
  * @size: size of the array
