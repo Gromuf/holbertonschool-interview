@@ -69,6 +69,7 @@ List *add_node_begin(List **list, char *str)
 
     new_node = add_node_end(list, str);
     if (!new_node)
-        *list = new_node;
+        return (NULL);
+    *list = new_node;
     return (new_node);
 }
