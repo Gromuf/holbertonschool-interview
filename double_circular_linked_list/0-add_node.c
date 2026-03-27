@@ -10,6 +10,7 @@
 List *create_node(const char *str)
 {
 	List *new_node;
+
 	new_node = malloc(sizeof(List));
 	if (!new_node)
 		return (NULL);
@@ -66,6 +67,7 @@ List *add_node_end(List **list, char *str)
 List *add_node_begin(List **list, char *str)
 {
 	List *new_node;
+
 	if (!list || !str)
 		return (NULL);
 	new_node = create_node(str);
