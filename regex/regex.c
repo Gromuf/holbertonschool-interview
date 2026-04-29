@@ -1,7 +1,7 @@
 #include "regex.h"
 
 /**
- * regex_match - Vérifie si une chaîne correspond à une expression régulière
+ * regex_match - Vérifie si une expression régulière
  * @str: La chaîne à analyser
  * @pattern: L'expression régulière (peut contenir '.' et '*')
  *
@@ -10,6 +10,7 @@
 int regex_match(char const *str, char const *pattern)
 {
 	int first_match = 0;
+
 	if (*pattern == '\0')
 		return (*str == '\0');
 	first_match = (*str != '\0' && (*str == *pattern || *pattern == '.'));
